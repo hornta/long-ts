@@ -1,0 +1,47 @@
+{
+  "name": "long-ts",
+  "version": "1.0.0",
+  "description": "A Long class for representing a 64-bit two's-complement integer value.",
+  "keywords": [
+    "long",
+    "math",
+    "typescript"
+  ],
+  "type": "module",
+  "author": "hornta",
+  "license": "MIT",
+  "homepage": "https://github.com/hornta/long-ts#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hornta/long-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hornta/long-ts/issues"
+  },
+  "source": "./src/long.ts",
+  "module": "./dist/long.js",
+  "exports": "./dist/long.modern.js",
+  "main": "./dist/long.cjs",
+  "umd:main": "./dist/long.umd.js",
+  "types": "./dist/long.d.ts",
+  "scripts": {
+    "build": "microbundle",
+    "test": "jest",
+    "lint": "eslint .",
+    "generateDocs": "typedoc --cleanOutputDir --gitRemote https://github.com/hornta/long-ts.git ./src/long.ts"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.4.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.2.0",
+    "microbundle": "^0.13.3",
+    "prettier": "2.4.1",
+    "ts-jest": "^27.0.5",
+    "typedoc": "^0.22.3"
+  }
+}

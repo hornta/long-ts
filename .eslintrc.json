@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:jest/all",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "dot-notation": "error",
+    "curly": "error",
+    "one-var": ["error", "never"],
+    "no-constant-condition": ["error", { "checkLoops": false }],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "jest/consistent-test-it": ["error", { "fn": "test" }],
+    "lines-between-class-members": ["error", "always"]
+  }
+}
