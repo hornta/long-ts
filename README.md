@@ -1,6 +1,12 @@
 # long-ts
 
-An alternative to [https://github.com/dcodeIO/long.js](long.js) with support for ESM, CJS, UMD and [https://github.com/developit/microbundle#modern](Modern Mode). It's written in TypeScript and thus houses it's own type declarations. The only notable differences between long-ts and long.js are the removal of `Long.isLong()` in favor of using `instanceof`. All aliased shorthand methods are also removed.
+An alternative to [long.js](https://github.com/dcodeIO/long.js) with support for ESM, CJS, UMD and [Modern Mode](https://github.com/developit/microbundle#modern). It's written in TypeScript and thus houses it's own type declarations.
+
+long-ts and long.js differences:
+
+- Removed `Long.isLong()` in favor of using `instanceof`.
+- Removed all aliased shorthand methods like `eq` and `shr` and more.
+- Using named export `import { Long } from 'long-ts'` instead of `const Long = require('long.js')`
 
 ## Installation
 
@@ -20,4 +26,25 @@ console.log(longVal.toString());
 
 ## Documentation
 
-...
+https://hornta.github.io/long-ts/modules.html
+
+## Building
+
+`npm run build` will also build the documentation in `/docs`
+
+```
+npm install
+npm run build
+```
+
+Running tests:
+
+```
+npm run test
+```
+
+Running linter:
+
+```
+npm run lint
+```

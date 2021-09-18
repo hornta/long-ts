@@ -18,6 +18,9 @@
   "bugs": {
     "url": "https://github.com/hornta/long-ts/issues"
   },
+  "files": [
+    "dist"
+  ],
   "source": "./src/long.ts",
   "module": "./dist/long.js",
   "exports": "./dist/long.modern.js",
@@ -25,10 +28,11 @@
   "umd:main": "./dist/long.umd.js",
   "types": "./dist/long.d.ts",
   "scripts": {
-    "build": "microbundle",
+    "build": "microbundle && npm run generateDocs",
     "test": "jest",
     "lint": "eslint .",
-    "generateDocs": "typedoc --cleanOutputDir --gitRemote https://github.com/hornta/long-ts.git ./src/long.ts"
+    "generateDocs": "typedoc --cleanOutputDir ./src/long.ts",
+    "prepare": "npm run lint && npm run test && npm run build"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
