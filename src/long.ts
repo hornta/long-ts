@@ -42,36 +42,72 @@ try {
 }
 
 export class Long {
+	/**
+	 * Signed zero.
+	 */
 	static readonly ZERO = Long.fromInt(0);
 
+	/**
+	 * Unsigned zero.
+	 */
 	static readonly UZERO = Long.fromInt(0, true);
 
+	/**
+	 * Signed one.
+	 */
 	static readonly ONE = Long.fromInt(1);
 
+	/**
+	 * Unsigned one.
+	 */
 	static readonly UONE = Long.fromInt(1, true);
 
+	/**
+	 * Signed negative one.
+	 */
 	static readonly NEG_ONE = Long.fromInt(-1);
 
+	/**
+	 * Maximum signed value.
+	 */
 	static readonly MAX_VALUE = Long.fromBits(
 		0xffffffff | 0,
 		0x7fffffff | 0,
 		false
 	);
 
+	/**
+	 * Maximum unsigned value.
+	 */
 	static readonly MAX_UNSIGNED_VALUE = Long.fromBits(
 		0xffffffff | 0,
 		0xffffffff | 0,
 		true
 	);
 
+	/**
+	 * Minimum signed value.
+	 */
 	static readonly MIN_VALUE = Long.fromBits(0, 0x80000000 | 0, false);
 
+	/**
+	 * The low 32 bits as a signed value.
+	 */
 	low: number;
 
+	/**
+	 * The high 32 bits as a signed value.
+	 */
 	high: number;
 
+	/**
+	 * Whether unsigned or not.
+	 */
 	unsigned: boolean;
 
+	/**
+	 * Constructs a 64 bit two's-complement integer, given its low and high 32 bit values as signed integers. See the from* functions below for more convenient ways of constructing Longs.
+	 */
 	constructor(low: number, high: number, unsigned = false) {
 		this.low = low | 0;
 		this.high = high | 0;
@@ -186,26 +222,44 @@ export class Long {
 		return this.high != 0 ? bit + 33 : bit + 1;
 	}
 
+	/**
+	 * Tests if this Long's value equals zero.
+	 */
 	isZero() {
 		return this.high === 0 && this.low === 0;
 	}
 
+	/**
+	 * Tests if this Long's value is negative.
+	 */
 	isNegative() {
 		return !this.unsigned && this.high < 0;
 	}
 
+	/**
+	 * Tests if this Long's value is positive.
+	 */
 	isPositive() {
 		return this.unsigned || this.high >= 0;
 	}
 
+	/**
+	 * Tests if this Long's value is odd.
+	 */
 	isOdd() {
 		return (this.low & 1) === 1;
 	}
 
+	/**
+	 * Tests if this Long's value is even.
+	 */
 	isEven() {
 		return (this.low & 1) === 0;
 	}
 
+	/**
+	 * Tests if this Long's value equals the specified's.
+	 */
 	equals(other: Long | number | string) {
 		if (!(other instanceof Long)) {
 			other = Long.fromValue(other);
@@ -220,22 +274,37 @@ export class Long {
 		return this.high === other.high && this.low === other.low;
 	}
 
+	/**
+	 * Tests if this Long's value differs from the specified's.
+	 */
 	notEquals(other: Long | number | string) {
 		return !this.equals(other);
 	}
 
+	/**
+	 * Tests if this Long's value is less than the specified's.
+	 */
 	lessThan(other: Long | number | string) {
 		return this.compare(other) < 0;
 	}
 
+	/**
+	 * Tests if this Long's value is less than or equal the specified's.
+	 */
 	lessThanOrEqual(other: Long | number | string) {
 		return this.compare(other) <= 0;
 	}
 
+	/**
+	 * Tests if this Long's value is greater than the specified's.
+	 */
 	greaterThan(other: Long | number | string) {
 		return this.compare(other) > 0;
 	}
 
+	/**
+	 * Tests if this Long's value is greater than or equal the specified's.
+	 */
 	greaterThanOrEqual(other: Long | number | string) {
 		return this.compare(other) >= 0;
 	}
@@ -835,6 +904,9 @@ export class Long {
 		);
 	}
 
+	/**
+	 * Returns a Long representing the given 32 bit integer value.
+	 */
 	static fromInt(value: number, unsigned?: boolean) {
 		let cache;
 		if (unsigned) {
@@ -866,6 +938,9 @@ export class Long {
 		}
 	}
 
+	/**
+	 * Returns a Long representing the given value, provided that it is a finite number. Otherwise, zero is returned.
+	 */
 	static fromNumber(value: number, unsigned?: boolean): Long {
 		if (isNaN(value)) {
 			return unsigned ? Long.UZERO : Long.ZERO;
@@ -895,10 +970,16 @@ export class Long {
 		);
 	}
 
+	/**
+	 * Returns a Long representing the 64 bit integer that comes by concatenating the given low and high bits. Each is assumed to use 32 bits.
+	 */
 	static fromBits(lowBits: number, highBits: number, unsigned?: boolean) {
 		return new Long(lowBits, highBits, unsigned);
 	}
 
+	/**
+	 * Returns a Long representation of the given string, written using the specified radix.
+	 */
 	static fromString(
 		str: string,
 		unsigned?: boolean | number,
@@ -953,6 +1034,9 @@ export class Long {
 		return result;
 	}
 
+	/**
+	 * Converts the specified value to a Long using the appropriate from* function for its type.
+	 */
 	static fromValue(
 		val:
 			| Long
