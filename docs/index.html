@@ -2,7 +2,13 @@
 <a href="#long-ts" id="long-ts" style="color: inherit; text-decoration: none;">
   <h1>long-ts</h1>
 </a>
-<p>An alternative to <a href="https://github.com/dcodeIO/long.js">long.js</a> with support for ESM, CJS, UMD and <a href="https://github.com/developit/microbundle#modern">Modern Mode</a>. It&#39;s written in TypeScript and thus houses it&#39;s own type declarations. The only notable differences between long-ts and long.js are the removal of <code>Long.isLong()</code> in favor of using <code>instanceof</code>. All aliased shorthand methods are also removed.</p>
+<p>An alternative to <a href="https://github.com/dcodeIO/long.js">long.js</a> with support for ESM, CJS, UMD and <a href="https://github.com/developit/microbundle#modern">Modern Mode</a>. It&#39;s written in TypeScript and thus houses it&#39;s own type declarations.</p>
+<p>long-ts and long.js differences:</p>
+<ul>
+<li>Removed <code>Long.isLong()</code> in favor of using <code>instanceof</code>.</li>
+<li>Removed all aliased shorthand methods like <code>eq</code> and <code>shr</code> and more.</li>
+<li>Using named export <code>import { Long } from &#39;long-ts&#39;</code> instead of <code>const Long = require(&#39;long.js&#39;)</code></li>
+</ul>
 
 <a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
   <h2>Installation</h2>
@@ -21,10 +27,16 @@
 </a>
 <p><a href="https://hornta.github.io/long-ts/modules.html">https://hornta.github.io/long-ts/modules.html</a></p>
 
-<a href="#developing" id="developing" style="color: inherit; text-decoration: none;">
-  <h2>Developing</h2>
+<a href="#building" id="building" style="color: inherit; text-decoration: none;">
+  <h2>Building</h2>
 </a>
-<p>You are recommended to be using at least Node LTS during development.</p>
-<pre><code><span class="hl-1"># </span><span class="hl-0">Builds</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-5">ESM</span><span class="hl-1">, </span><span class="hl-5">CJS</span><span class="hl-1">, </span><span class="hl-5">UMD</span><span class="hl-1">, </span><span class="hl-0">Modern</span><span class="hl-1"> </span><span class="hl-0">Mode</span><span class="hl-1"> </span><span class="hl-0">and</span><span class="hl-1"> </span><span class="hl-0">TypeScript</span><span class="hl-1"> </span><span class="hl-0">declaration</span><span class="hl-1"> </span><span class="hl-0">files</span><span class="hl-1">.</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">build</span><br/><br/><span class="hl-1"># </span><span class="hl-0">Executes</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">unit</span><span class="hl-1"> </span><span class="hl-0">tests</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">test</span><br/><br/><span class="hl-1"># </span><span class="hl-0">Lint</span><span class="hl-1"> </span><span class="hl-0">files</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">lint</span><br/><br/><span class="hl-1"># </span><span class="hl-0">Generates</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> /</span><span class="hl-0">docs</span><span class="hl-1"> </span><span class="hl-0">folder</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">generateDocs</span>
+<p><code>npm run build</code> will also build the documentation in <code>/docs</code></p>
+<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">install</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">build</span>
+</code></pre>
+<p>Running tests:</p>
+<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">test</span>
+</code></pre>
+<p>Running linter:</p>
+<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">lint</span>
 </code></pre>
 </div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-class"><a href="classes/Long.html" class="tsd-kind-icon">Long</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
